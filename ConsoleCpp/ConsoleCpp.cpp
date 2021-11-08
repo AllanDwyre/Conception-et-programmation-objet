@@ -37,10 +37,10 @@ int main()
 
 	while (getline(textFile, myLine)) {
 		myText += myLine;
-		cout << myText << endl;
+		cout << myLine << endl;
 	}
 	textFile.close();
-
+	cout << endl;
 	int mode;
 	cout << "Quelle est le mode de cryptage :  (1. Cesar, 2.Xor, 3.Both)" << endl;
 	cin >> mode;
