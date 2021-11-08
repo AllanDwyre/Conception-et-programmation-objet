@@ -17,7 +17,7 @@ string Cesar(string text) {
 string Xor(string text) {
 	XorClass _xor;
 	string key;
-	cout << "Quelle clée :" << endl;
+	cout << "Quelle clee :" << endl;
 	cin >> key;
 	return _xor.Crypt(text, key);
 }
@@ -32,10 +32,6 @@ int main()
 	cout << "Quelle est le nom de fichier :" << endl;
 	cin >> file; //text.txt
 
-	int mode;
-	cout << "Quelle est le mode de sécurité :  (1. Cesar, 2.Xor, 3.Both)" << endl;
-	cin >> mode;
-
 	string myLine, myText;
 	ifstream textFile(file);
 
@@ -44,6 +40,10 @@ int main()
 		cout << myText << endl;
 	}
 	textFile.close();
+
+	int mode;
+	cout << "Quelle est le mode de cryptage :  (1. Cesar, 2.Xor, 3.Both)" << endl;
+	cin >> mode;
 
 	string crypted = "";
 	switch (mode)
