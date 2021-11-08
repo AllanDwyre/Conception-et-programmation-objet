@@ -69,4 +69,6 @@ int main()
 	ofstream writedFile(finalFile);
 	writedFile << crypted;
 	writedFile.close();
+
+	return 0;
 }
