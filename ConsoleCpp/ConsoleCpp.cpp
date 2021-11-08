@@ -1,20 +1,72 @@
-// ConsoleCpp.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <fstream>
+
+#include "CesarClass.h"
+#include "XorClass.h"
+
+using namespace std;
+
+string Cesar(string text) {
+	CesarClass cesar;
+	int decalage;
+	cout << "Quelle decalage :" << endl;
+	cin >> decalage;
+	return cesar.Crypt(text, decalage);
+}
+
+string Xor(string text) {
+	XorClass _xor;
+	string key;
+	cout << "Quelle clée :" << endl;
+	cin >> key;
+	return _xor.Crypt(text, key);
+}
+
+string BothSecurityMode(string text) {
+	return Xor(Cesar(text));
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	string file;
+	cout << "Quelle est le nom de fichier :" << endl;
+	cin >> file; //text.txt
+
+	int mode;
+	cout << "Quelle est le mode de sécurité :  (1. Cesar, 2.Xor, 3.Both)" << endl;
+	cin >> mode;
+
+	string myLine, myText;
+	ifstream textFile(file);
+
+	while (getline(textFile, myLine)) {
+		myText += myLine;
+		cout << myText << endl;
+	}
+	textFile.close();
+
+	string crypted = "";
+	switch (mode)
+	{
+	case 1:
+		crypted = Cesar(myText);
+		break;
+	case 2:
+		crypted = Xor(myText);
+		break;
+	case 3:
+		crypted = BothSecurityMode(myText);
+		break;
+	default:
+		break;
+	}
+
+	cout << crypted << endl;
+
+	string finalFile;
+	cout << "Quelle nom de fichier pour stocker le cryptage" << endl;
+	cin >> finalFile;
+	ofstream writedFile(finalFile);
+	writedFile << crypted;
+	writedFile.close();
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

@@ -139,7 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CesarClass.cpp" />
     <ClCompile Include="ConsoleCpp.cpp" />
+    <ClCompile Include="XorClass.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CesarClass.h" />
+    <ClInclude Include="XorClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
