@@ -3,7 +3,5 @@
 class CesarClass
 {
 public:
-	std::string Crypt(std::string text, int decalage);
-
-private:
+	std::string Crypt(const std::string& text, const int& decalage);
 };

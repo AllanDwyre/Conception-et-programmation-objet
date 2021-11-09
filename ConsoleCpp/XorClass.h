@@ -3,8 +3,6 @@
 class XorClass
 {
 public:
-	std::string Crypt(std::string text, std::string key);
-
-private:
+	std::string Crypt(const std::string& text, const  std::string& key);
 };
 

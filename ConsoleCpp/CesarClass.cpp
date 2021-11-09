@@ -1,9 +1,7 @@
 #include "CesarClass.h"
-#include <iostream>
-
 using namespace std;
 
-string CesarClass::Crypt(string text, int decalage)
+string CesarClass::Crypt(const string& text, const int& decalage)
 {
 	string result = "";
 	for (char item : text)
